@@ -35,9 +35,6 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         } else {
             initRecycleView();
             startLoadingNews();
-            if (mNewsList.isEmpty()) {
-                showNoNews();
-            }
         }
 
     }
@@ -52,6 +49,9 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         mNewsList.clear();
         mNewsList.addAll(news);
         mAdapter.notifyDataSetChanged();
+        if (mNewsList.isEmpty()) {
+                showNoNews();
+            }
     }
 
     @Override
